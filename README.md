@@ -1,105 +1,34 @@
-# docker-remote-desktop
+# ubuntu-docker-desktop-xrdp
 
-[![build](https://github.com/scottyhardy/docker-remote-desktop/actions/workflows/build.yml/badge.svg)](https://github.com/scottyhardy/docker-remote-desktop/actions/workflows/build.yml)
+The desktop docker container for an RDP client, based on Ubuntu 24.10 LTS, featuring a Windows-like appearance powered by the [XFCE](https://xfce.org) desktop environment.
+The home directory of the `demo` user inside the Docker container is persistent and is mapped to the `./home` directory on the host machine, ensuring data remains accessible between container restarts.
+Audio support is not available.
+This project is forked from the parent [docker-remote-desktop](https://github.com/scottyhardy/docker-remote-desktop) project.
 
-Docker image with RDP server using [xrdp](http://xrdp.org) on Ubuntu with [XFCE](https://xfce.org).
+## Build local docker image, run container and open RDP client:
 
-Images are built weekly using the Ubuntu Docker image with the 'latest' tag.
-
-## Running manually with `docker` commands
-
-Download the latest version of the image:
-
-```bash
-docker pull scottyhardy/docker-remote-desktop
-```
-
-To run with an interactive bash session:
+All necessary instructions are prepared by functions of the [init.sh](init.sh) bash script.
 
 ```bash
-docker run -it \
-    --rm \
-    --hostname="$(hostname)" \
-    --publish="3389:3389/tcp" \
-    --name="remote-desktop" \
-    scottyhardy/docker-remote-desktop:latest /bin/bash
+. init.sh # Load functions
+dbuild    # Build docker image
+drun      # Run container
+dxrdp     # Open xfreerdp desktop client
+dstop     # Stop container
 ```
-
-To start as a detached daemon:
-
-```bash
-docker run --detach \
-    --rm \
-    --hostname="$(hostname)" \
-    --publish="3389:3389/tcp" \
-    --name="remote-desktop" \
-    scottyhardy/docker-remote-desktop:latest
-```
-
-To stop the detached container:
-
-```bash
-docker kill remote-desktop
-```
-
-## Connecting with an RDP client
-
-All Windows desktops and servers come with Remote Desktop pre-installed and macOS users can download the Microsoft Remote Desktop application for free from the App Store.  For Linux users, I'd suggest using the Remmina Remote Desktop client.
-
-For the hostname, use `localhost` if the container is hosted on the same machine you're running your Remote Desktop client on and for remote connections just use the name or IP address of the machine you are connecting to.
-NOTE: To connect to a remote machine, it will require TCP port 3389 to be exposed through the firewall.
 
 To log in, use the following default user account details:
 
 ```bash
-Username: ubuntu
-Password: ubuntu
+Username: demo
+Password: changeit
 ```
 
-![Screenshot of login prompt](https://raw.githubusercontent.com/scottyhardy/docker-remote-desktop/master/screenshot_1.png)
+## Screenshot of login prompt of `xfreerdp` application
 
-![Screenshot of XFCE desktop](https://raw.githubusercontent.com/scottyhardy/docker-remote-desktop/master/screenshot_2.png)
+![Screenshot of login prompt](screenshot_1.png)
 
-## Building docker-remote-desktop on your own machine
+## Screenshot of XFCE desktop
 
-First, clone the GitHub repository:
+![Screenshot of XFCE desktop](screenshot_2.png)
 
-```bash
-git clone https://github.com/scottyhardy/docker-remote-desktop.git
-
-cd docker-remote-desktop
-```
-
-You can then build the image with the supplied script:
-
-```bash
-./build
-```
-
-Or run the following `docker` command:
-
-```bash
-docker build -t docker-remote-desktop .
-```
-
-## Running local images with scripts
-
-I've created some simple scripts that give the minimum requirements for either running the container interactively or running as a detached daemon.
-
-To run with an interactive bash session:
-
-```bash
-./run
-```
-
-To start as a detached daemon:
-
-```bash
-./start
-```
-
-To stop the detached container:
-
-```bash
-./stop
-```
