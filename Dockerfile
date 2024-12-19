@@ -30,7 +30,6 @@ RUN <<-EOF
 
 	apt-get -y install --no-install-recommends -o APT::Immediate-Configure=0 \
         apt-utils \
-        chpasswd \
         curl \
         git \
         gnupg \
