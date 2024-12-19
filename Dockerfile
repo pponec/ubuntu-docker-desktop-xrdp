@@ -33,7 +33,6 @@ RUN <<-EOF
         curl \
         git \
         gnupg \
-        gpg \
         lsb-release \
         psmisc \
         vim \
