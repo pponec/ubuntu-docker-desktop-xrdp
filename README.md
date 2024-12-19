@@ -7,14 +7,14 @@ This project is forked from the parent [docker-remote-desktop](https://github.co
 
 ## Software Requirements
 
-To install Docker, follow the instructions on the official [website]().
+To install Docker Engine (CE), follow the instructions on the official [website](https://docs.docker.com/engine/install/).
 
 ## Build docker image, run container and open RDP client:
 
 All necessary instructions are prepared by functions of the [init.sh](init.sh) bash script.
 
 ```bash
-. init.sh # Load functions
+. init.sh # Load bash functions
 dbuild    # Build docker image
 drun      # Run container
 dxrdp     # Open xfreerdp desktop client
