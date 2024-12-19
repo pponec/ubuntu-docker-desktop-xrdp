@@ -10,17 +10,26 @@ ENV DISPLAY ${DISPLAY:-:1}
 RUN <<-EOF
     apt-get update
     apt-get -y upgrade
-    apt-get -y install --no-install-recommends \
-        apt-utils \
+    apt-get -y install --no-install-recommends -o APT::Immediate-Configure=0 \
         ca-certificates \
         dbus-x11 \
         locales \
+        mesa-utils \
+        mesa-utils-extra \
         openssh-server \
         openssl \
+        x11-utils \
+        x11-xserver-utils \
+        xauth \
+        xdg-utils \
+        xfce4 \
+        xfce4-goodies \
         xorgxrdp \
-        xrdp
+        xrdp \
+        xubuntu-icon-theme
 
-	apt-get -y install --no-install-recommends \
+	apt-get -y install --no-install-recommends -o APT::Immediate-Configure=0 \
+        apt-utils \
         chpasswd \
         curl \
         git \
@@ -30,63 +39,19 @@ RUN <<-EOF
         vim \
         wget
 
-	apt-get -y install --no-install-recommends \
-        mesa-utils \
-        mesa-utils-extra \
-        x11-utils \
-        x11-xserver-utils \
-        xauth \
-        xdg-utils \
-
-	apt-get -y install --no-install-recommends \
-        sudo
-
     apt-get clean
     rm -rf /var/lib/apt/lists/*
 EOF
 
 # Firefox (snap fails)
-RUN <<-EOF
-    apt update
-    install -d -m 0755 /etc/apt/keyrings
-    wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
-    echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
-    echo "Package: *\nPin: origin packages.mozilla.org\nPin-Priority: 1000" | tee /etc/apt/preferences.d/mozilla
-    apt-get -y install firefox && apt clean
-EOF
-
-# XFCE desktop
-RUN <<-EOF
-	apt-get update
-	apt-get -y install --no-install-recommends \
-        xfce4 \
-        xfce4-goodies \
-        xfce4-battery-plugin \
-        xfce4-clipman-plugin \
-        xfce4-cpufreq-plugin \
-        xfce4-cpugraph-plugin \
-        xfce4-datetime-plugin \
-        xfce4-diskperf-plugin \
-        xfce4-fsguard-plugin \
-        xfce4-genmon-plugin \
-        xfce4-indicator-plugin \
-        xfce4-netload-plugin \
-        xfce4-notifyd \
-        xfce4-places-plugin \
-        xfce4-sensors-plugin \
-        xfce4-smartbookmark-plugin \
-        xfce4-systemload-plugin \
-        xfce4-taskmanager \
-        xfce4-terminal \
-        xfce4-timer-plugin \
-        xfce4-verve-plugin \
-        xfce4-weather-plugin \
-        xfce4-whiskermenu-plugin \
-        xubuntu-icon-theme
-
-    apt-get clean
-    rm -rf /var/lib/apt/lists/*
-EOF
+#RUN <<-EOF
+#    apt update
+#    install -d -m 0755 /etc/apt/keyrings
+#    wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
+#    echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
+#    echo "Package: *\nPin: origin packages.mozilla.org\nPin-Priority: 1000" | tee /etc/apt/preferences.d/mozilla
+#    apt-get -y install firefox && apt clean
+#EOF
 
 # Create a new user and add to the sudo group:
 ENV USERNAME=demo
@@ -102,8 +67,8 @@ RUN cat <<EOF > /usr/bin/entrypoint
   cd /home/${USERNAME}
   DEFAULT_CONFIG_FILE=.config/.default_user_config
   test ! -d "\$DEFAULT_CONFIG_FILE" && {
-    sudo cp -r /home/xfce-config/.config .
-    sudo chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}
+    cp -r /home/xfce-config/.config .
+    chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}
     mkdir -p "\$DEFAULT_CONFIG_FILE"
   }
   service dbus start
