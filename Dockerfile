@@ -24,7 +24,7 @@ RUN apt update \
         xubuntu-icon-theme \
  && apt clean
 
-# Utilities
+# Optional utilities
 RUN apt -y install --no-install-recommends -o APT::Immediate-Configure=0 \
         apt-utils \
         curl \
@@ -33,7 +33,7 @@ RUN apt -y install --no-install-recommends -o APT::Immediate-Configure=0 \
         wget \
  && apt clean
 
-## Firefox (snap fails)
+## Firefox (no snap)
 RUN printf "Package: firefox*\nPin: release o=Ubuntu*\nPin-Priority: -1" > /etc/apt/preferences.d/firefox-no-snap \
  && install -d -m 0755 /etc/apt/keyrings \
  && wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null \
