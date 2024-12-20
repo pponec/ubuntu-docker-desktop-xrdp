@@ -24,7 +24,6 @@ RUN apt update \
         xubuntu-icon-theme \
  && apt clean
 
-
 # Utilities
 RUN apt -y install --no-install-recommends -o APT::Immediate-Configure=0 \
         apt-utils \
@@ -50,6 +49,7 @@ RUN printf "Package: firefox*\nPin: release o=Ubuntu*\nPin-Priority: -1" > /etc/
 # Create a new user and add to the sudo group:
 ENV USERNAME=demo
 ARG PASSWORD=changeit
+ENV LANG=en_US.UTF-8
 RUN useradd -ms /bin/bash --home-dir /home/${USERNAME} ${USERNAME} && echo "${USERNAME}:${PASSWORD}" | chpasswd \
  && usermod -aG sudo,xrdp ${USERNAME} \
  && locale-gen en_US.UTF-8
@@ -72,6 +72,5 @@ RUN cat <<EOF > /usr/bin/entrypoint
 EOF
 RUN chmod +x /usr/bin/entrypoint
 
-ENV LANG=en_US.UTF-8
 EXPOSE 3389/tcp
 ENTRYPOINT ["/usr/bin/entrypoint"]
