@@ -26,7 +26,7 @@ function drun {
 function dbash  { docker exec -it ${DOCKER_IMAGE_NAME}_01 "$@" ;}
 # Run Xrdp client.
 function dxrdp  { xfreerdp /size:1920x1000 /bpp:32 /v:localhost:3389 /u:$DOCKER_USER ;}
-# Stop container (and remove it)
+# Stop the container (and remove it)
 function dstop  { docker container stop ${DOCKER_IMAGE_NAME}_01 ;}
 # Run the ssh client.
 function dssh   { ssh $DOCKER_USER@localhost -p 2222 "$@" ;}
