@@ -49,12 +49,8 @@ ARG PASSWORD=changeit
 ARG USER_UID=1001
 ARG USER_GID=1001
 ENV LANG=en_US.UTF-8
-
-RUN echo "User UID: ${USER_UID}"
-RUN echo "Grou GID: ${USER_GID}"
-
-RUN groupadd -g ${USER_GID} $USERNAME \
- && useradd -ms /bin/bash --home-dir /home/${USERNAME} -u ${USER_UID} -g ${USER_GID} ${USERNAME} && echo "${USERNAME}:${PASSWORD}" | chpasswd \
+RUN useradd -ms /bin/bash --home-dir /home/${USERNAME} ${USERNAME} \
+ && echo "${USERNAME}:${PASSWORD}" | chpasswd \
  && usermod -aG sudo,xrdp ${USERNAME} \
  && locale-gen en_US.UTF-8
 COPY xfce-config/.config /home/xfce-config/.config
