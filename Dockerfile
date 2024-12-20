@@ -29,9 +29,6 @@ RUN apt -y install --no-install-recommends -o APT::Immediate-Configure=0 \
         apt-utils \
         curl \
         git \
-        gnupg \
-        lsb-release \
-        psmisc \
         vim \
         wget \
  && apt clean
