@@ -4,7 +4,7 @@ The desktop docker container for an [RDP](https://en.wikipedia.org/wiki/Remote_D
 The home directory of the `demo` user inside the Docker container is persistent and is mapped to the `./home` directory on the host machine, ensuring data remains accessible between container restarts.
 Audio support is not available.
 
-The Docker image has an approximate size of 1GB, including the Firefox web browser.
+The Docker image size is less than 970 MB, including the Firefox web browser.
 
 ## Software Requirements
 

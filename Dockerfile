@@ -24,23 +24,22 @@ RUN apt update \
         xubuntu-icon-theme \
  && apt clean
 
-# Optional utilities
-RUN apt -y install --no-install-recommends -o APT::Immediate-Configure=0 \
-        apt-utils \
-        curl \
-        git \
-        vim \
-        wget \
- && apt clean
-
 ## Firefox (no snap)
-RUN printf "Package: firefox*\nPin: release o=Ubuntu*\nPin-Priority: -1" > /etc/apt/preferences.d/firefox-no-snap \
+RUN apt -y install --no-install-recommends wget \
+ && printf "Package: firefox*\nPin: release o=Ubuntu*\nPin-Priority: -1" > /etc/apt/preferences.d/firefox-no-snap \
  && install -d -m 0755 /etc/apt/keyrings \
  && wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null \
  && echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null \
  && echo "Package: *\nPin: origin packages.mozilla.org\nPin-Priority: 1000" | tee /etc/apt/preferences.d/mozilla \
  && apt update \
  && apt -y install firefox \
+ && apt clean
+
+# Optional utilities
+RUN apt -y install --no-install-recommends -o APT::Immediate-Configure=0 \
+        apt-utils \
+        curl \
+        sudo \
  && apt clean
 
 # Create a new user and add to the sudo group:
