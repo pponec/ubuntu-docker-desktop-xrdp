@@ -6,11 +6,17 @@ DOCKER_IMAGE_NAME=remote-desktop
 DOCKER_USER=demo
 
 # Build docker image
-function dbuild { cd "$DOCKER_DIR" && docker build -t ${DOCKER_IMAGE_NAME} . ; }
+function dbuild { cd "$DOCKER_DIR" \
+         && docker build -t ${DOCKER_IMAGE_NAME} \
+            --build-arg "USERNAME=$DOCKER_USER" \
+            --build-arg "USER_UID=$(id -u)" \
+            --build-arg "USER_GID=$(id -g)" \
+            . ;}
 # Run docker container
 function drun {
-  mkdir mkdir -p home/$DOCKER_USER
-  docker run -d --rm --shm-size 2g \
+  mkdir mkdir -p "$DOCKER_DIR/home/$DOCKER_USER"
+  docker run -d --rm \
+         --shm-size 2g \
          --name "${DOCKER_IMAGE_NAME}_01" \
          -p "3389:3389/tcp" \
          -v "$(pwd)/home/${DOCKER_USER}:/home/${DOCKER_USER}" \
