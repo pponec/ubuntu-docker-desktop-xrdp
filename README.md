@@ -19,7 +19,7 @@ All necessary instructions are prepared by functions of the [init.sh](init.sh) b
 dbuild    # Build docker image
 drun      # Run container
 dxrdp     # Open xfreerdp desktop client
-dstop     # Stop container (and remove it)
+dstop     # Stop the container (and remove it)
 ```
 
 To log in, use the following default user account details:
