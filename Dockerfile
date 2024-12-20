@@ -60,11 +60,11 @@ ENV entry=/usr/bin/entrypoint
 RUN cat <<EOF > /usr/bin/entrypoint
 #!/bin/bash -v
   cd /home/${USERNAME}
-  DEFAULT_CONFIG_FILE=.config/.default_user_config
-  test ! -d "\$DEFAULT_CONFIG_FILE" && {
-    cp -r /home/xfce-config/.config .
+  DEFAULT_CONFIG_DIR=/home/xfce-config/.config
+  test -d "\$DEFAULT_CONFIG_DIR" && {
+    cp -r "\$DEFAULT_CONFIG_DIR" .
+    rm -r "\$DEFAULT_CONFIG_DIR"
     chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}
-    mkdir -p "\$DEFAULT_CONFIG_FILE"
   }
   service dbus start
   service xrdp start
