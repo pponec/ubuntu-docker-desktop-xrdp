@@ -7,90 +7,52 @@ FROM ubuntu:$TAG
 ENV DEBIAN_FRONTEND noninteractive
 ENV DISPLAY ${DISPLAY:-:1}
 
-RUN <<-EOF
-    apt-get update
-    apt-get -y upgrade
-    apt-get -y install --no-install-recommends \
-        apt-utils \
+RUN apt update \
+ && apt -y upgrade \
+ && apt -y install --no-install-recommends -o APT::Immediate-Configure=0 \
         ca-certificates \
         dbus-x11 \
         locales \
-        openssh-server \
-        openssl \
-        xorgxrdp \
-        xrdp
-
-	apt-get -y install --no-install-recommends \
-        chpasswd \
-        curl \
-        git \
-        gnupg \
-        lsb-release \
-        psmisc \
-        vim \
-        wget
-
-	apt-get -y install --no-install-recommends \
-        mesa-utils \
-        mesa-utils-extra \
         x11-utils \
         x11-xserver-utils \
         xauth \
         xdg-utils \
-
-	apt-get -y install --no-install-recommends \
-        sudo
-
-    apt-get clean
-    rm -rf /var/lib/apt/lists/*
-EOF
-
-# Firefox (snap fails)
-RUN apt update && apt install -y wget && apt clean
-RUN install -d -m 0755 /etc/apt/keyrings && \
-    wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null && \
-    echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null && \
-    echo "Package: *\nPin: origin packages.mozilla.org\nPin-Priority: 1000" | tee /etc/apt/preferences.d/mozilla
-RUN apt update && apt-get -y install firefox && apt clean
-
-# OPTIONALLY ADDONS
-RUN <<-EOF
-	apt-get update
-	apt-get -y install --no-install-recommends \
         xfce4 \
         xfce4-goodies \
-        xfce4-battery-plugin \
-        xfce4-clipman-plugin \
-        xfce4-cpufreq-plugin \
-        xfce4-cpugraph-plugin \
-        xfce4-datetime-plugin \
-        xfce4-diskperf-plugin \
-        xfce4-fsguard-plugin \
-        xfce4-genmon-plugin \
-        xfce4-indicator-plugin \
-        xfce4-netload-plugin \
-        xfce4-notifyd \
-        xfce4-places-plugin \
-        xfce4-sensors-plugin \
-        xfce4-smartbookmark-plugin \
-        xfce4-systemload-plugin \
-        xfce4-taskmanager \
-        xfce4-terminal \
-        xfce4-timer-plugin \
-        xfce4-verve-plugin \
-        xfce4-weather-plugin \
-        xfce4-whiskermenu-plugin \
-        xubuntu-icon-theme
+        xorgxrdp \
+        xrdp \
+        xubuntu-icon-theme \
+ && apt clean
 
-    apt-get clean
-    rm -rf /var/lib/apt/lists/*
-EOF
+# Optional utilities
+RUN apt -y install --no-install-recommends -o APT::Immediate-Configure=0 \
+        apt-utils \
+        curl \
+        git \
+        vim \
+        wget \
+ && apt clean
+
+## Firefox (no snap)
+RUN printf "Package: firefox*\nPin: release o=Ubuntu*\nPin-Priority: -1" > /etc/apt/preferences.d/firefox-no-snap \
+ && install -d -m 0755 /etc/apt/keyrings \
+ && wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null \
+ && echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null \
+ && echo "Package: *\nPin: origin packages.mozilla.org\nPin-Priority: 1000" | tee /etc/apt/preferences.d/mozilla \
+ && apt update \
+ && apt -y install firefox \
+ && apt clean
 
 # Create a new user and add to the sudo group:
 ENV USERNAME=demo
 ARG PASSWORD=changeit
-RUN useradd -ms /bin/bash --home-dir /home/${USERNAME} ${USERNAME} && echo "${USERNAME}:${PASSWORD}" | chpasswd
-RUN usermod -aG sudo,xrdp ${USERNAME}
+ARG USER_UID=1001
+ARG USER_GID=1001
+ENV LANG=en_US.UTF-8
+RUN useradd -ms /bin/bash --home-dir /home/${USERNAME} ${USERNAME} \
+ && echo "${USERNAME}:${PASSWORD}" | chpasswd \
+ && usermod -aG sudo,xrdp ${USERNAME} \
+ && locale-gen en_US.UTF-8
 COPY xfce-config/.config /home/xfce-config/.config
 
 # Create a start script:
@@ -98,11 +60,11 @@ ENV entry=/usr/bin/entrypoint
 RUN cat <<EOF > /usr/bin/entrypoint
 #!/bin/bash -v
   cd /home/${USERNAME}
-  DEFAULT_CONFIG_FILE=.config/.default_user_config
-  test ! -d "\$DEFAULT_CONFIG_FILE" && {
-    sudo cp -r /home/xfce-config/.config .
-    sudo chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}
-    mkdir -p "\$DEFAULT_CONFIG_FILE"
+  DEFAULT_CONFIG_DIR=/home/xfce-config/.config
+  test -d "\$DEFAULT_CONFIG_DIR" && {
+    cp -r "\$DEFAULT_CONFIG_DIR" .
+    rm -r "\$DEFAULT_CONFIG_DIR"
+    chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}
   }
   service dbus start
   service xrdp start
@@ -110,7 +72,5 @@ RUN cat <<EOF > /usr/bin/entrypoint
 EOF
 RUN chmod +x /usr/bin/entrypoint
 
-RUN locale-gen en_US.UTF-8
-ENV LANG=en_US.UTF-8
 EXPOSE 3389/tcp
 ENTRYPOINT ["/usr/bin/entrypoint"]
