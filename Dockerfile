@@ -47,22 +47,21 @@ ENV USERNAME=demo
 ARG PASSWORD=changeit
 ARG USER_UID=1001
 ARG USER_GID=1001
+ARG USER_INIT_CONFIG_DIR=/opt/default-config
 ENV LANG=en_US.UTF-8
 RUN useradd -ms /bin/bash --home-dir /home/${USERNAME} ${USERNAME} \
  && echo "${USERNAME}:${PASSWORD}" | chpasswd \
  && usermod -aG sudo,xrdp ${USERNAME} \
  && locale-gen en_US.UTF-8
-COPY xfce-config/.config /home/xfce-config/.config
+COPY xfce-config $USER_INIT_CONFIG_DIR
 
 # Create a start script:
 ENV entry=/usr/bin/entrypoint
 RUN cat <<EOF > /usr/bin/entrypoint
 #!/bin/bash -v
-  cd /home/${USERNAME}
-  DEFAULT_CONFIG_DIR=/home/xfce-config/.config
-  test -d "\$DEFAULT_CONFIG_DIR" && {
-    cp -r "\$DEFAULT_CONFIG_DIR" .
-    rm -r "\$DEFAULT_CONFIG_DIR"
+  test -d $USER_INIT_CONFIG_DIR && {
+    cp -r $USER_INIT_CONFIG_DIR/. /home/${USERNAME}
+    rm -r $USER_INIT_CONFIG_DIR
     chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}
   }
   service dbus start

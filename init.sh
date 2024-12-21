@@ -6,12 +6,11 @@ DOCKER_IMAGE_NAME=remote-desktop
 DOCKER_USER=demo
 
 # Build docker image
-function dbuild { cd "$DOCKER_DIR" \
-         && docker build -t ${DOCKER_IMAGE_NAME} \
+function dbuild { docker build -t ${DOCKER_IMAGE_NAME} \
             --build-arg "USERNAME=$DOCKER_USER" \
             --build-arg "USER_UID=$(id -u)" \
             --build-arg "USER_GID=$(id -g)" \
-            . ;}
+            "$DOCKER_DIR" ;}
 # Run docker container
 function drun {
   mkdir mkdir -p "$DOCKER_DIR/home/$DOCKER_USER"
@@ -32,6 +31,6 @@ function dstop  { docker container stop ${DOCKER_IMAGE_NAME}_01 ;}
 function dssh   { ssh $DOCKER_USER@localhost -p 2222 "$@" ;}
 # Run functions: dstop; dbuild; drun; dxrdp
 function dall   { dstop; dbuild && drun && sleep 2 && dxrdp ;}
-# Removes all unused Docker objects including persistent home directory of the docker user `demo`.
-function dpruneall { sudo docker system prune -a && sudo rm -rf "$DOCKER_DIR/home/" ;}
+# Removes all unused Docker images including persistent home directory of the docker user `demo`.
+function dpruneall { sudo docker system prune && sudo rm -rf "$DOCKER_DIR/home/" ;}
 
