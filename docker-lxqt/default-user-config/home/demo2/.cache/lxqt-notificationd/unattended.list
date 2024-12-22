@@ -1,0 +1,17 @@
+[2024-12-22-10-57-22-645]
+Actions=@Invalid()
+Application=lxqt-powermanagement
+Body=Charging (98.4216%)
+Hints=@Variant(\0\0\0\b\0\0\0\0)
+Icon=lxqt-powermanagement
+Summary=Battery Present
+TimeOut=10000
+
+[2024-12-22-10-57-29-650]
+Actions=@Invalid()
+Application=lxqt-panel
+Body=
+Hints=@Variant(\0\0\0\b\0\0\0\0)
+Icon=
+Summary=Removable media/devices manager: Global shortcut 'XF86Eject' cannot be registered
+TimeOut=10000

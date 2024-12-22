@@ -1,0 +1,179 @@
+Xsession: X session started for demo2 at Sun Dec 22 10:57:09 UTC 2024
+localuser:demo2 being added to access control list
+dbus-update-activation-environment: systemd --user not found, ignoring --systemd argument
+dbus-update-activation-environment: setting USER=demo2
+dbus-update-activation-environment: setting HOME=/home/demo2
+dbus-update-activation-environment: setting XRDP_PULSE_SINK_SOCKET=xrdp_chansrv_audio_out_socket_10
+dbus-update-activation-environment: setting XRDP_PULSE_SOURCE_SOCKET=xrdp_chansrv_audio_in_socket_10
+dbus-update-activation-environment: setting DBUS_SESSION_BUS_ADDRESS=unix:path=/tmp/dbus-dqi3yxYuc4,guid=152923cc2133da1b209ebe376767f085
+dbus-update-activation-environment: setting PULSE_SCRIPT=/etc/xrdp/pulse/default.pa
+dbus-update-activation-environment: setting LOGNAME=demo2
+dbus-update-activation-environment: setting PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+dbus-update-activation-environment: setting XRDP_SOCKET_PATH=/run/xrdp/sockdir
+dbus-update-activation-environment: setting DISPLAY=:10.0
+dbus-update-activation-environment: setting LANG=C.UTF-8
+dbus-update-activation-environment: setting UID=1001
+dbus-update-activation-environment: setting SHELL=/bin/bash
+dbus-update-activation-environment: setting XRDP_SESSION=1
+dbus-update-activation-environment: setting PWD=/home/demo2
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+lxqt-session: LockScreenManager couldn't start
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+void PCManFM::Application::initWatch() Could not read:  ""
+QFileSystemWatcher::addPath: path is empty
+isPrimaryInstance
+New PolkitAgentListener  0x5b7536693f10
+Adding new listener  PolkitQt1::Agent::Listener(0x7ffdde52ef00) for  0x5b7536693f10
+"Cannot create unix session: No session for pid 132"
+
+** (process:132): CRITICAL **: 10:57:10.370: polkit_agent_listener_register_with_options: assertion 'POLKIT_IS_SUBJECT (subject)' failed
+"Cannot register authentication agent!"
+
+(process:132): GLib-GObject-CRITICAL **: 10:57:10.370: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+dbusCall: QDBusInterface is invalid "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager" "CanHibernate"
+MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+glx: failed to create drisw screen
+** Dbus error **************************
+Error name  "org.freedesktop.DBus.Error.InvalidArgs"
+Error msg   "No such interface “org.freedesktop.DBus.Properties”"
+****************************************
+dbusCall: QDBusInterface is invalid "org.freedesktop.ConsoleKit" "/org/freedesktop/ConsoleKit/Manager" "org.freedesktop.ConsoleKit.Manager" "CanHibernate"
+dbusCall: QDBusInterface is invalid "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager" "CanSuspend"
+** Dbus error **************************
+Error name  "org.freedesktop.DBus.Error.InvalidArgs"
+Error msg   "No such interface “org.freedesktop.DBus.Properties”"
+****************************************
+dbusCall: QDBusInterface is invalid "org.freedesktop.ConsoleKit" "/org/freedesktop/ConsoleKit/Manager" "org.freedesktop.ConsoleKit.Manager" "CanSuspend"
+dbusCall: QDBusInterface is invalid "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager" "CanReboot"
+dbusCall: QDBusInterface is invalid "org.freedesktop.ConsoleKit" "/org/freedesktop/ConsoleKit/Manager" "org.freedesktop.ConsoleKit.Manager" "CanReboot"
+dbusCall: QDBusInterface is invalid "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager" "CanReboot"
+dbusCall: QDBusInterface is invalid "org.freedesktop.ConsoleKit" "/org/freedesktop/ConsoleKit/Manager" "org.freedesktop.ConsoleKit.Manager" "CanReboot"
+dbusCall: QDBusInterface is invalid "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager" "CanPowerOff"
+dbusCall: QDBusInterface is invalid "org.freedesktop.ConsoleKit" "/org/freedesktop/ConsoleKit/Manager" "org.freedesktop.ConsoleKit.Manager" "CanPowerOff"
+dbusCall: QDBusInterface is invalid "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager" "CanPowerOff"
+dbusCall: QDBusInterface is invalid "org.freedesktop.ConsoleKit" "/org/freedesktop/ConsoleKit/Manager" "org.freedesktop.ConsoleKit.Manager" "CanPowerOff"
+starting
+[Notice] Started
+[Emergency] X11 error: type: 0, serial: 96, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 97, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 98, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 99, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+glx: failed to create drisw screen
+WinIdChange 1200008 handle QWidgetWindow(0x590bec689940, name="LXQtPanel panel1Window") QScreen(0x590bec38e5f0, name="rdp0")
+StatusNotifierProxy, services: ()
+kf.solid.backends.udisks2: Failed enumerating UDisks2 objects: "org.freedesktop.DBus.Error.ServiceUnknown" 
+ "The name org.freedesktop.UDisks2 was not provided by any .service files"
+kf.solid.backends.udisks2: Failed enumerating UDisks2 objects: "org.freedesktop.DBus.Error.ServiceUnknown" 
+ "The name org.freedesktop.UDisks2 was not provided by any .service files"
+Manager selection claimed
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+Translator is not loaded "qlipper_C" "/usr/share/qlipper/translations"
+MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+glx: failed to create drisw screen
+BatteryChanged discharging: false chargeLevel: 98.4216 actionTime: QTime(Invalid)
+Starting idlenesswatcher
+"PowerButton" "org.freedesktop.DBus.Error.Spawn.ChildExited" "Launch helper exited with unknown return code 1"
+"SuspendButton" "org.freedesktop.DBus.Error.Spawn.ChildExited" "Launch helper exited with unknown return code 1"
+"HibernateButton" "org.freedesktop.DBus.Error.Spawn.ChildExited" "Launch helper exited with unknown return code 1"
+[Emergency] X11 error: type: 0, serial: 108, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 109, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 110, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 111, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 114, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 115, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 116, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 117, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 120, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 121, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 122, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 123, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 126, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 127, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 128, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 129, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 132, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 133, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 134, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 135, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 138, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 139, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 140, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 141, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 144, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 145, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 146, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 147, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 150, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 151, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 152, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 153, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 156, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 157, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 158, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 159, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 162, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 163, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 164, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 165, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 168, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 169, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 170, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 171, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 174, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 175, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 176, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Emergency] X11 error: type: 0, serial: 177, error_code: 10 'BadAccess (attempt to access private resource denied)', request_code: 33 (GrabKey), minor_code: 0, resourceid: 1005
+[Warning] Cannot extract keycode and modifiers from shortcut 'XF86PowerOff'
+[Warning] Cannot extract keycode and modifiers from shortcut 'XF86Suspend'
+[Warning] Cannot extract keycode and modifiers from shortcut 'XF86Sleep'
+[Warning] Cannot extract keycode and modifiers from shortcut 'XF86Eject'
+execAction "/usr/share/applications/featherpad.desktop"
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+glx: failed to create drisw screen
+execAction "/usr/share/applications/featherpad.desktop"
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+glx: failed to create drisw screen
+execAction "/usr/share/applications/featherpad.desktop"
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+glx: failed to create drisw screen
+pcmanfm-qt /home/demo2
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+execAction "/usr/share/applications/pcmanfm-qt.desktop"
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+execAction "/usr/share/applications/lxqt-leave.desktop"
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-demo2'
+dbusCall: QDBusInterface is invalid "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager" "CanPowerOff"
+dbusCall: QDBusInterface is invalid "org.freedesktop.ConsoleKit" "/org/freedesktop/ConsoleKit/Manager" "org.freedesktop.ConsoleKit.Manager" "CanPowerOff"
+dbusCall: QDBusInterface is invalid "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager" "CanPowerOff"
+dbusCall: QDBusInterface is invalid "org.freedesktop.ConsoleKit" "/org/freedesktop/ConsoleKit/Manager" "org.freedesktop.ConsoleKit.Manager" "CanPowerOff"
+dbusCall: QDBusInterface is invalid "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager" "CanSuspend"
+** Dbus error **************************
+Error name  "org.freedesktop.DBus.Error.InvalidArgs"
+Error msg   "No such interface “org.freedesktop.DBus.Properties”"
+****************************************
+dbusCall: QDBusInterface is invalid "org.freedesktop.ConsoleKit" "/org/freedesktop/ConsoleKit/Manager" "org.freedesktop.ConsoleKit.Manager" "CanSuspend"
+dbusCall: QDBusInterface is invalid "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager" "CanReboot"
+dbusCall: QDBusInterface is invalid "org.freedesktop.ConsoleKit" "/org/freedesktop/ConsoleKit/Manager" "org.freedesktop.ConsoleKit.Manager" "CanReboot"
+dbusCall: QDBusInterface is invalid "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager" "CanReboot"
+dbusCall: QDBusInterface is invalid "org.freedesktop.ConsoleKit" "/org/freedesktop/ConsoleKit/Manager" "org.freedesktop.ConsoleKit.Manager" "CanReboot"
+dbusCall: QDBusInterface is invalid "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager" "CanHibernate"
+** Dbus error **************************
+Error name  "org.freedesktop.DBus.Error.InvalidArgs"
+Error msg   "No such interface “org.freedesktop.DBus.Properties”"
+****************************************
+dbusCall: QDBusInterface is invalid "org.freedesktop.ConsoleKit" "/org/freedesktop/ConsoleKit/Manager" "org.freedesktop.ConsoleKit.Manager" "CanHibernate"
+MESA: error: ZINK: vkCreateInstance failed (VK_ERROR_INCOMPATIBLE_DRIVER)
+glx: failed to create drisw screen
+aboutToQuit
+[Notice] Stopped
+closing
