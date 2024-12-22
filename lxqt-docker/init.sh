@@ -2,8 +2,8 @@
 # Usage: . init.sh; dbuild; drun; dxrdp
 
 DOCKER_DIR=$(dirname "$0")
-DOCKER_IMAGE_NAME=xfce-desktop
-DOCKER_USER=demo
+DOCKER_IMAGE_NAME=lxqt-desktop
+DOCKER_USER=demo2
 
 # Build docker image
 function dbuild {
@@ -23,7 +23,7 @@ function drun {
          --name "${DOCKER_IMAGE_NAME}_01" \
          -p "3389:3389/tcp" \
          -v "$(pwd)/home/${DOCKER_USER}:/home/${DOCKER_USER}" \
-         "$@" \
+        "$@" \
          ${DOCKER_IMAGE_NAME}
 }
 # Run a command or bash.

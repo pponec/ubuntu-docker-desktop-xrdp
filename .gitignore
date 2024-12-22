@@ -2,5 +2,4 @@
 /.idea/
 /.vscode/
 /home/
-/xfce-config/.config/xfce4/xfce4-screenshooter
-/xfce-config/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-screenshooter.xml
+/lxqt-docker/home/

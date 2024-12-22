@@ -18,7 +18,7 @@ RUN apt update \
         x11-xserver-utils \
         xauth \
         xdg-utils \
-        xfce4 xfce4-goodies xubuntu-icon-theme \
+        lxqt papirus-icon-theme \
         xorgxrdp \
         xrdp \
  && apt clean
